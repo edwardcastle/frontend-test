@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+    button.primary {
+        @apply px-[13px] py-3.5 min-w-[66px] font-medium rounded bg-[#0D55CF] !important;
+    }
+
+    button.secondary {
+        @apply px-[13px] text-black min-w-[95px] font-medium py-3.5 rounded bg-[#EAF0F5] !important;
+    }
+}
