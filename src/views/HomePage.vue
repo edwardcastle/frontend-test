@@ -49,7 +49,7 @@
               <p class="flex items-center">
                 <img
                   class="xs:p-1 xl:p-2 xs:min-w-[30px]"
-                  :src="`src/static/${button.icon}`"
+                  :src="`../src/static/${button.icon}`"
                   alt="icon"
                 />
                 <span
