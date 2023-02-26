@@ -3,7 +3,7 @@
     <div class="pt-52">
       <!-- task input -->
       <div id="task-box" class="flex" @click="showActionsFooter">
-        <img class="max-w-[20px]" src="src/assets/icons/plus.svg" alt="add" />
+        <img class="max-w-[20px]" src="../assets/icons/plus.svg" alt="add" />
 
         <span
           id="empty-task"
