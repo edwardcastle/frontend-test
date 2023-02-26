@@ -4,7 +4,7 @@
 
 @layer utilities {
     .container {
-        @apply max-w-screen-2xl xs:px-1 sm:px-10 md:px-28 lg:px-36 xl:px-40 min-h-screen justify-center items-center
+        @apply max-w-screen-2xl xs:px-4 sm:px-10 md:px-28 lg:px-36 xl:px-40 min-h-screen justify-center items-center
     }
 
     button {
@@ -25,5 +25,21 @@
 
     .word-url {
         @apply text-[#5AACFF] cursor-pointer !important
+    }
+
+    .chip-important {
+        @apply text-sm rounded-2xl p-2 text-[#702EE6] bg-[#DBC7FF] cursor-pointer !important
+    }
+
+    .chip-email {
+        @apply text-sm rounded-2xl p-2 text-[#F58E0A] bg-[#FFE6C7] cursor-pointer !important
+    }
+
+    .chip-mention {
+        @apply text-sm rounded-2xl p-2 text-[#07A873] bg-[#ADF0D9] cursor-pointer !important
+    }
+
+    .chip-url {
+        @apply text-sm rounded-2xl p-2 text-[#007FFF] bg-[#D6EBFF] cursor-pointer !important
     }
 }
