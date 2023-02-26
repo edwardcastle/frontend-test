@@ -6,11 +6,13 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
+    "test": "vitest",
+    "coverage": "vitest run --coverage",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore"
   },
   "dependencies": {
-    "@oruga-ui/oruga-next": "^0.5.10",
-    "pinia": "^2.0.28",
+    "@vue/test-utils": "^2.3.0",
+    "vitest": "^0.29.1",
     "vue": "^3.2.45",
     "vue-router": "^4.1.6"
   },
@@ -21,6 +23,7 @@
     "autoprefixer": "^10.4.13",
     "eslint": "8.22.0",
     "eslint-plugin-vue": "^9.3.0",
+    "happy-dom": "^8.9.0",
     "postcss": "^8.4.21",
     "prettier": "^2.7.1",
     "tailwindcss": "^3.2.4",

@@ -2,10 +2,13 @@
   <div class="container">
     <div class="pt-52">
       <!-- task input -->
-      <div class="flex" @click="showActionsFooter">
+      <div id="task-box" class="flex" @click="showActionsFooter">
         <img class="max-w-[20px]" src="src/assets/icons/plus.svg" alt="add" />
 
-        <span v-if="!isFooterVisible" class="mt-2 ml-2 text-[#8A94A6] w-full"
+        <span
+          id="empty-task"
+          v-if="!isFooterVisible"
+          class="mt-2 ml-2 text-[#8A94A6] w-full"
           >Type to add a new task</span
         >
 
@@ -71,6 +74,7 @@
               Cancel
             </button>
             <button
+              id="btn-add"
               @click="addNewTask"
               class="min-w-[95px] bg-[#0D55CF] text-white"
             >
@@ -99,7 +103,7 @@
 
       <!-- list of tasks -->
       <ul v-for="(html, index) in htmlArr" :key="index">
-        <li class="mt-5">
+        <li v-if="html.length > 0" class="mt-5">
           <input class="mr-2" type="checkbox" />
           <span class="mx-1" v-html="html" />
         </li>
@@ -159,9 +163,7 @@ const addNewTask = () => {
   newTask.value.forEach((word) => {
     const newClass = setClass(word);
     html += ` <p class="inline-flex">
-            <span v-if="${newClass[1] === "chip-mention"}" class='${
-      newClass[1]
-    }'>${newClass[2]}</span></p>`;
+            <span class='${newClass[1]}'>${newClass[2]}</span></p>`;
   });
   htmlArr.value.push(html);
   resetTasks();
@@ -172,10 +174,10 @@ const addNewTask = () => {
  */
 const checkTyping = () => {
   let timer,
-    timeoutVal = 1000;
+    timeoutVal = 700;
   const content = document.getElementById("content-editable-input");
-  content.addEventListener("keypress", handleKeyPress);
-  content.addEventListener("keyup", handleKeyUp);
+  content?.addEventListener("keypress", handleKeyPress);
+  content?.addEventListener("keyup", handleKeyUp);
   function handleKeyPress() {
     window.clearTimeout(timer);
   }
@@ -212,8 +214,8 @@ const content = () => {
  */
 const updateWordsCss = () => {
   const content = document.getElementById("content-editable-input");
-  stringText.value = content.innerText;
-  newTask.value = content.innerText.split(" ");
+  stringText.value = content?.innerText;
+  newTask.value = content?.innerText.split(" ");
   setCaretToEnd();
 };
 
@@ -240,7 +242,7 @@ const setClass = (item) => {
   if (item[0] === "#") {
     return ["word-important", "chip-important", "#Important"];
   } else if (item[0] === "@") {
-    return ["word-mention", "chip-mention", item.substring(1, item.length)];
+    return ["word-mention", "chip-mention", item];
   } else if (isEmail(item)) {
     return ["word-email", "chip-email", "Mail"];
   } else if (item.length < 25) {
