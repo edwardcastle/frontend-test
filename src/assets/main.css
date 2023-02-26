@@ -3,11 +3,43 @@
 @tailwind utilities;
 
 @layer utilities {
-    button.primary {
-        @apply px-[13px] py-3.5 min-w-[66px] font-medium rounded bg-[#0D55CF] !important;
+    .container {
+        @apply max-w-screen-2xl xs:px-4 sm:px-10 md:px-28 lg:px-36 xl:px-40 min-h-screen justify-center items-center
     }
 
-    button.secondary {
-        @apply px-[13px] text-black min-w-[95px] font-medium py-3.5 rounded bg-[#EAF0F5] !important;
+    button {
+        @apply h-[40px] font-medium rounded
+    }
+
+    .word-important {
+        @apply text-[#702EE6] cursor-pointer !important
+    }
+
+    .word-email {
+        @apply text-[#f58e0a] cursor-pointer !important
+    }
+
+    .word-mention {
+        @apply text-[#07A873] cursor-pointer !important
+    }
+
+    .word-url {
+        @apply text-[#5AACFF] cursor-pointer !important
+    }
+
+    .chip-important {
+        @apply text-sm rounded-2xl p-2 text-[#702EE6] bg-[#DBC7FF] cursor-pointer !important
+    }
+
+    .chip-email {
+        @apply text-sm rounded-2xl p-2 text-[#F58E0A] bg-[#FFE6C7] cursor-pointer !important
+    }
+
+    .chip-mention {
+        @apply text-sm rounded-2xl p-2 text-[#07A873] bg-[#ADF0D9] cursor-pointer !important
+    }
+
+    .chip-url {
+        @apply text-sm rounded-2xl p-2 text-[#007FFF] bg-[#D6EBFF] cursor-pointer !important
     }
 }
