@@ -3,7 +3,7 @@
     <div class="pt-52">
       <!-- task input -->
       <div id="task-box" class="flex" @click="showActionsFooter">
-        <img class="max-w-[20px]" src="../static/plus.svg" alt="add" />
+        <img class="max-w-[20px]" src="/static/plus.svg" alt="add" />
 
         <span
           id="empty-task"
@@ -23,7 +23,7 @@
         <img
           :class="`pr-2 ${isTaskEmpty ? 'opacity-50' : ''}`"
           v-if="isFooterVisible"
-          src="../static/avatar.svg"
+          src="/static/avatar.svg"
         />
       </div>
       <!--end task input -->
@@ -49,7 +49,7 @@
               <p class="flex items-center">
                 <img
                   class="xs:p-1 xl:p-2 xs:min-w-[30px]"
-                  :src="`../src/static/${button.icon}`"
+                  :src="`/static/${button.icon}`"
                   alt="icon"
                 />
                 <span
@@ -89,10 +89,10 @@
               <p class="flex items-center">
                 <img
                   v-if="isTaskEmpty"
-                  src="../static/cancel.svg"
+                  src="../../public/static/cancel.svg"
                   alt="icon"
                 />
-                <img v-else src="../static/diskette.svg" alt="icon" />
+                <img v-else src="../../public/static/diskette.svg" alt="icon" />
               </p>
             </button>
           </div>
@@ -178,9 +178,11 @@ const checkTyping = () => {
   const content = document.getElementById("content-editable-input");
   content?.addEventListener("keypress", handleKeyPress);
   content?.addEventListener("keyup", handleKeyUp);
+
   function handleKeyPress() {
     window.clearTimeout(timer);
   }
+
   function handleKeyUp() {
     window.clearTimeout(timer);
     timer = window.setTimeout(() => {
