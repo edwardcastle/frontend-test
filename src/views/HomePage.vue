@@ -89,10 +89,10 @@
               <p class="flex items-center">
                 <img
                   v-if="isTaskEmpty"
-                  src="../../public/static/cancel.svg"
+                  src="/static/cancel.svg"
                   alt="icon"
                 />
-                <img v-else src="../../public/static/diskette.svg" alt="icon" />
+                <img v-else src="/static/diskette.svg" alt="icon" />
               </p>
             </button>
           </div>
@@ -103,7 +103,7 @@
 
       <!-- list of tasks -->
       <ul v-for="(html, index) in htmlArr" :key="index">
-        <li v-if="html.length > 0" class="mt-5">
+        <li v-if="html.length > 0" class="mt-5 mr-2 flex">
           <input class="mr-2" type="checkbox" />
           <span class="mx-1" v-html="html" />
         </li>
@@ -162,8 +162,26 @@ const addNewTask = () => {
   let html = "";
   newTask.value.forEach((word) => {
     const newClass = setClass(word);
-    html += ` <p class="inline-flex">
-            <span class='${newClass[1]}'>${newClass[2]}</span></p>`;
+    if (newClass[1] === "chip-url") {
+      html += ` <p class="inline-flex">
+            <span class='flex ${newClass[1]}'>
+            <img class="mr-1" src="/static/link.svg">
+            ${newClass[2]}</span></p>`;
+    } else if (newClass[1] === "chip-email") {
+      html += ` <p class="inline-flex">
+            <span class='flex ${newClass[1]}'>
+            <img class="mr-1" src="/static/envelope.svg">
+            ${newClass[2]}</span></p>`;
+    } else if (newClass[1] === "chip-mention") {
+      html += ` <p class="inline-flex">
+            <span class='flex ${newClass[1]}'>
+            <img class="mr-1" src="/static/user-img.svg">
+            ${newClass[2]}</span></p>`;
+    } else {
+      html += ` <p class="inline-flex">
+            <span class='flex ${newClass[1]}'>
+            ${newClass[2]}</span></p>`;
+    }
   });
   htmlArr.value.push(html);
   resetTasks();
