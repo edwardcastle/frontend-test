@@ -87,11 +87,7 @@
               @click="addNewTask"
             >
               <p class="flex items-center">
-                <img
-                  v-if="isTaskEmpty"
-                  src="/static/cancel.svg"
-                  alt="icon"
-                />
+                <img v-if="isTaskEmpty" src="/static/cancel.svg" alt="icon" />
                 <img v-else src="/static/diskette.svg" alt="icon" />
               </p>
             </button>
@@ -177,6 +173,11 @@ const addNewTask = () => {
             <span class='flex ${newClass[1]}'>
             <img class="mr-1" src="/static/user-img.svg">
             ${newClass[2]}</span></p>`;
+    } else if (newClass[1] === "chip-important") {
+      html += ` <p class="inline-flex">
+            <span class='flex ${newClass[1]}'>
+            <img class="mr-1" src="/static/sharp.svg">
+            ${newClass[2]}</span></p>`;
     } else {
       html += ` <p class="inline-flex">
             <span class='flex ${newClass[1]}'>
@@ -260,7 +261,7 @@ const setCaretToEnd = () => {
  */
 const setClass = (item) => {
   if (item[0] === "#") {
-    return ["word-important", "chip-important", "#Important"];
+    return ["word-important", "chip-important", "Important"];
   } else if (item[0] === "@") {
     return ["word-mention", "chip-mention", item];
   } else if (isEmail(item)) {
